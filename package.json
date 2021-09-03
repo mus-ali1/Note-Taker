@@ -1,0 +1,20 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "Simple Note-Taker app using express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mus-ali1/Note-Taker.git"
+  },
+  "author": "Mustafa Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mus-ali1/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/mus-ali1/Note-Taker#readme"
+}

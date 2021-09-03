@@ -5,7 +5,7 @@
 ### Table of Contents
 
 - [Description](#description)
--[User-Story](#User-Story)
+- [User-Story](#User-Story)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
