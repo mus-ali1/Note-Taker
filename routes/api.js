@@ -58,3 +58,34 @@ api.post("/", (req, res) => {
         })
     }
 })
+
+
+
+// Allows delete function to be handled by returning updated notes to readFile and then subsequently updates our db.json file
+
+api.delete("/:id", (req, res) => {
+
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(404).send("Notes not found").end();
+        }
+
+        const notesArray = JSON.parse(data)
+
+        const updatedNotes = notesArray.filter(note => note.id !== req.params.id)
+
+
+        res.json(updatedNotes);
+
+
+        fs.writeFile("./db/db.json", JSON.stringify(updatedNotes, null, 4), err =>
+            err ? console.error(err) : console.log("Note deleted from file.")
+        )
+
+
+    })
+
+
+})
+module.exports = api;
