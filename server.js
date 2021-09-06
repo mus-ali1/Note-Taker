@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const apiRouter = require("./routes.api.js");
+const apiRouter = require("./routes/api");
 
 
 // Set the environment variable PORT to tell your web server what port to listen on, also set variable for experess for use later on.
