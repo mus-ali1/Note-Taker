@@ -36,3 +36,25 @@ api.post("/", (req, res) => {
             title,
             text
         }
+
+
+        // Update our ReadFile and send data back as Json and then update db.json
+
+        fs.readFile("./db/db.json", "utf8", (err, data) => {
+            if (err) {
+                console.error(err)
+            } else {
+
+                const notesArray = JSON.parse(data);
+                notesArray.push(newNote);
+
+                res.json(JSON.parse(data));
+
+
+                fs.writeFile("./db/db.json", JSON.stringify(notesArray, null, 4), err =>
+                    err ? console.error(err) : console.log("Data written to file.")
+                )
+            }
+        })
+    }
+})
