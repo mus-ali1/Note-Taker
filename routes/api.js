@@ -19,3 +19,20 @@ api.get("/", (req, res) => {
         res.json(JSON.parse(data));
     })
 })
+
+
+// Declare .post request plus validate incoming note 
+api.post("/", (req, res) => {
+
+    const { title, text } = req.body;
+
+
+    if (!title || !text) {
+        res.status(500).statusMessage("Not all the required data").end();
+    } else {
+        //create our new note object
+        const newNote = {
+            id: uuidv4(),
+            title,
+            text
+        }
