@@ -30,8 +30,12 @@ app.get("*", (req, res) =>
 
 
 // Ensures server is listening for requests at the correct port
-app.listen(PORT, () =>
-    console.log(`Listening for requests on port ${PORT}.`)
-);
+// app.listen(PORT, () =>
+//     console.log(`Listening for requests on port ${PORT}.`)
+// );
 
+
+app.listen(PORT, () => {
+    console.log(`app listening at http://localhost:${PORT}`);
+});
 

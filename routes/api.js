@@ -1,6 +1,7 @@
 //Routing for our API requests//
 const api = require("express").Router();
 const fs = require("fs");
+const path = require('path');
 
 // Id generator 
 const { v4: uuidv4 } = require("uuid");
@@ -12,9 +13,7 @@ console.log("dirname: ", __dirname)
 api.get("/", (req, res) => {
     console.log(`${req.method} request received.`);
 
-
-    fs.readFile(path.join(__dirname, "../db/db.json", "utf8", (err, data) => {
-
+    fs.readFile(path.join("../db/db.json"), "utf8", (err, data) => {
 
         if (err) {
             console.error(err);
@@ -22,7 +21,7 @@ api.get("/", (req, res) => {
         }
 
         res.json(JSON.parse(data));
-    }))
+    })
 })
 
 
@@ -45,7 +44,7 @@ api.post("/", (req, res) => {
 
         // Update our ReadFile and send data back as Json and then update db.json
 
-        fs.readFile(path.join(__dirname, "../db/db.json", "utf8", (err, data) => {
+        fs.readFile(path.join("../db/db.json"), "utf8", (err, data) => {
             if (err) {
                 console.error(err)
             } else {
@@ -56,11 +55,11 @@ api.post("/", (req, res) => {
                 res.json(JSON.parse(data));
 
 
-                fs.writeFile(path.join(__dirname, "../db/db.json", JSON.stringify(notesArray, null, 4), err =>
+                fs.writeFile(path.join("../db/db.json"), JSON.stringify(notesArray, null, 4), err =>
                     err ? console.error(err) : console.log("Data written to file.")
-                ))
+                )
             }
-        }))
+        })
     }
 })
 
@@ -70,7 +69,7 @@ api.post("/", (req, res) => {
 
 api.delete("/:id", (req, res) => {
 
-    fs.readFile(path.join(__dirname, "../db/db.json", "utf8", (err, data) => {
+    fs.readFile(path.join("../db/db.json"), "utf8", (err, data) => {
         if (err) {
             console.error(err);
             res.status(404).send("Notes not found").end();
@@ -84,13 +83,15 @@ api.delete("/:id", (req, res) => {
         res.json(updatedNotes);
 
 
-        fs.writeFile(path.join(__dirname, "../db/db.json", JSON.stringify(updatedNotes, null, 4), err =>
+        fs.writeFile(path.join("../db/db.json"), JSON.stringify(updatedNotes, null, 4), err =>
             err ? console.error(err) : console.log("Note deleted from file.")
-        ))
+        )
 
 
-    }))
+    })
 
 
 })
+
+
 module.exports = api;
