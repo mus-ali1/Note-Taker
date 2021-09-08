@@ -1,24 +1,31 @@
 //Routing for our API requests//
 const api = require("express").Router();
 const fs = require("fs");
+
 // Id generator 
 const { v4: uuidv4 } = require("uuid");
 
-
+console.log("dirname: ", __dirname)
 
 // Declare .get request from our server
 
 api.get("/", (req, res) => {
     console.log(`${req.method} request received.`);
 
-    fs.readFile("../db/db.json", "utf8", (err, data) => {
+
+    // fs.*readFile*(path.*join*(__dirname,"../db/db.json")
+
+
+    fs.readFile(path.join(__dirname, "../db/db.json", "utf8", (err, data) => {
+
+
         if (err) {
             console.error(err);
             res.status(404).send("Notes not found").end();
         }
 
         res.json(JSON.parse(data));
-    })
+    }))
 })
 
 
@@ -41,7 +48,7 @@ api.post("/", (req, res) => {
 
         // Update our ReadFile and send data back as Json and then update db.json
 
-        fs.readFile("../db/db.json", "utf8", (err, data) => {
+        fs.readFile(path.join(__dirname, "../db/db.json", "utf8", (err, data) => {
             if (err) {
                 console.error(err)
             } else {
@@ -56,7 +63,7 @@ api.post("/", (req, res) => {
                     err ? console.error(err) : console.log("Data written to file.")
                 )
             }
-        })
+        }))
     }
 })
 
