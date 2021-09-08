@@ -7,10 +7,11 @@ const { v4: uuidv4 } = require("uuid");
 
 
 // Declare .get request from our server
+
 api.get("/", (req, res) => {
     console.log(`${req.method} request received.`);
 
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("../db/db.json", "utf8", (err, data) => {
         if (err) {
             console.error(err);
             res.status(404).send("Notes not found").end();
@@ -40,7 +41,7 @@ api.post("/", (req, res) => {
 
         // Update our ReadFile and send data back as Json and then update db.json
 
-        fs.readFile("./db/db.json", "utf8", (err, data) => {
+        fs.readFile("../db/db.json", "utf8", (err, data) => {
             if (err) {
                 console.error(err)
             } else {
@@ -51,7 +52,7 @@ api.post("/", (req, res) => {
                 res.json(JSON.parse(data));
 
 
-                fs.writeFile("./db/db.json", JSON.stringify(notesArray, null, 4), err =>
+                fs.writeFile("../db/db.json", JSON.stringify(notesArray, null, 4), err =>
                     err ? console.error(err) : console.log("Data written to file.")
                 )
             }
@@ -65,7 +66,7 @@ api.post("/", (req, res) => {
 
 api.delete("/:id", (req, res) => {
 
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("../db/db.json", "utf8", (err, data) => {
         if (err) {
             console.error(err);
             res.status(404).send("Notes not found").end();
@@ -79,7 +80,7 @@ api.delete("/:id", (req, res) => {
         res.json(updatedNotes);
 
 
-        fs.writeFile("./db/db.json", JSON.stringify(updatedNotes, null, 4), err =>
+        fs.writeFile("../db/db.json", JSON.stringify(updatedNotes, null, 4), err =>
             err ? console.error(err) : console.log("Note deleted from file.")
         )
 
