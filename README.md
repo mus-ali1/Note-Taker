@@ -6,17 +6,16 @@
 
 - [Description](#description)
 - [User-Story](#User-Story)
-- [Installation](#installation)
+- [Features](#Features)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [Testing](#testing)
+- [Credits](#Credits)
 - [Questions](#questions)
 - [License](#license)
 - [Application Image](#application-image)
 
 ## Description
 
-Developed the Back-end functionality for a Note-Taker App, that can be used to write and save notes.The app uses an Express.js back end and will save and retrieve user generated note data from a JSON file.
+Developed the Back-End functionality for a Note-Taker App, that can be used to write and save notes.The app uses an Express.js back end and will save and retrieve user generated note data from a JSON file.
 
 The application’s front end has already been created. It's my job to build the back end, connect the two, and then deploy the finished application to Heroku.
 
@@ -31,7 +30,16 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 
 
-## Installation
+
+# Features :
+
+1. Used 'Express.js' to build server
+
+2. Used 'fs(File System)' module to read and write from 'db.json' file.
+
+3. Used [uuid](https://www.npmjs.com/package/uuid) npm package to give unique id to each note.
+
+4. Application is deployed on [heroku](https://www.heroku.com/) : Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps.
 
 
 
@@ -40,12 +48,30 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 ## Usage
 
 
+* Clone this repository to use this application on local machine.
+
+* To install necessary dependencies, run the following command :
+
+```
+npm i
+```
+
+* The application will be invoked with the following command: This will start localhost server on PORT 3000.
+
+```
+node server.js
+```
+
+* Open browser and type `http://localhost:3000/` to run this application on your local machine.
+
+
 
 
 
 ## Credits
 
-If you want to contribute please create and issue or pull-request and I will get back to you as soon as possible.
+Starter code was submitted by Trilogy Educational Services 
+
 
 ## Questions
 
@@ -56,9 +82,9 @@ If you have any questions feel free to contact me here:
 
  ##### Email: [mustafa_a_ali@outlook.com](mailto:mustafa_a_ali@outlook.com?subject=[GitHub])
 
-## Testing
+ If you'd like to open an issue directly, use the following link. 
 
-
+ [open an issue](https://github.com/mus-ali1/Note-Taker/issues)
 
 
 
