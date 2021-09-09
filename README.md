@@ -78,4 +78,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Application Image
 
- ![Image of Application]()
+ ![Image of Application](./assets/11-express-homework-demo-01.png)
