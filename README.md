@@ -2,6 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+### Deployed Application 
+
+[Note Taker](https://musali-note-taker.herokuapp.com/)
+
+
+
 ### Table of Contents
 
 - [Description](#description)
